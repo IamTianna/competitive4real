@@ -1,0 +1,408 @@
+/* Batch 3.0 — information hierarchy and visual consolidation */
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --panel-soft: #fafbfe;
+  --ink: #172033;
+  --muted: #758096;
+  --line: #dfe5ee;
+  --line-strong: #ccd5e3;
+  --blue: #3560d4;
+  --blue-soft: #edf2ff;
+  --green: #278261;
+  --green-soft: #eaf6f1;
+  --amber: #a76a19;
+  --amber-soft: #fff5df;
+  --red: #bd3f59;
+  --red-soft: #fdecef;
+  --gray-soft: #f1f4f8;
+  --shadow: 0 8px 24px rgba(23, 32, 51, 0.055);
+  --radius: 10px;
+}
+
+body {
+  background: var(--bg) !important;
+  color: var(--ink);
+}
+
+.topbar {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-bottom-color: var(--line) !important;
+  box-shadow: 0 1px 0 rgba(23, 32, 51, 0.025);
+}
+
+.brand-mark,
+.btn.primary,
+.run-indicator-fill {
+  background: var(--blue) !important;
+  box-shadow: none !important;
+}
+
+.panel,
+.mini-card,
+.metric-card,
+.finding-card,
+.source-card,
+.issue-card,
+.product-info-card,
+.cs-skill-card,
+.cs-status-grid-card,
+.qa-gate-card,
+.qa-stage-card,
+.qa-issue-card,
+.chapter-conclusion,
+.collection-coverage,
+.planning-contract-note {
+  border-color: var(--line) !important;
+  box-shadow: none !important;
+}
+
+.panel:hover,
+.source-card.clickable:hover,
+.qa-stage-card:hover {
+  box-shadow: 0 5px 18px rgba(23, 32, 51, 0.055) !important;
+}
+
+.agent-node,
+.agent-node.compact {
+  --accent: var(--blue) !important;
+  border: 1px solid var(--line) !important;
+  border-left: 1px solid var(--line) !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+.agent-node.active,
+.agent-node.compact.active {
+  border-color: rgba(53, 96, 212, 0.42) !important;
+  background: var(--blue-soft) !important;
+}
+
+.agent-num {
+  color: #fff !important;
+  background: #8a98ad !important;
+  box-shadow: none !important;
+}
+
+.agent-node.active .agent-num { background: var(--blue) !important; }
+.agent-node.locked .agent-num { background: #b3bdca !important; }
+
+.nav-pill,
+.btn,
+.task-chip,
+.context-reopen-button {
+  box-shadow: none !important;
+}
+
+.nav-pill.active,
+.btn.subtle,
+.task-chip.selected,
+.context-reopen-button {
+  color: var(--blue) !important;
+  border-color: rgba(53, 96, 212, 0.28) !important;
+  background: var(--blue-soft) !important;
+}
+
+.status-tag,
+.origin-tag,
+.collection-status,
+.qa-inline-status-badge,
+.qa-report-badge,
+.qa-violated-rule,
+.diff-priority,
+.recommend-tag {
+  box-shadow: none !important;
+}
+
+.status-tag.running,
+.collection-status.running {
+  color: var(--blue) !important;
+  background: var(--blue-soft) !important;
+}
+
+.status-tag.done,
+.collection-status.collected,
+.qa-inline-status-badge.pass {
+  color: var(--green) !important;
+  background: var(--green-soft) !important;
+}
+
+.status-tag.review,
+.collection-status.warning,
+.qa-inline-status-badge.warning {
+  color: var(--amber) !important;
+  background: var(--amber-soft) !important;
+}
+
+.status-tag.rework,
+.collection-status.blocked,
+.collection-status.missing,
+.qa-inline-status-badge.block {
+  color: var(--red) !important;
+  background: var(--red-soft) !important;
+}
+
+.origin-agent,
+.origin-user,
+.origin-confirmed {
+  color: #475467 !important;
+  background: var(--gray-soft) !important;
+  border-color: var(--line) !important;
+}
+
+.skill-bar-fill,
+.cs-skill-bar-fill,
+.cs-sgc-bar-fill,
+.big-bar-fill,
+.run-indicator-fill {
+  background-image: none !important;
+}
+
+.cs-skill-bar-fill.cs-bar-green,
+.cs-sgc-bar-green { background: var(--green) !important; }
+.cs-skill-bar-fill.cs-bar-red,
+.cs-sgc-bar-red { background: var(--red) !important; }
+.cs-skill-bar-fill.cs-bar-amber,
+.cs-sgc-bar-amber { background: var(--amber) !important; }
+
+.cs-action-bar .btn-primary-purple,
+.comp-mode-tab.active {
+  color: #fff !important;
+  background: var(--blue) !important;
+  border-color: var(--blue) !important;
+  box-shadow: none !important;
+}
+
+/* Keep status color local instead of tinting whole cards. */
+.risk-card,
+.risk-card.green,
+.risk-card.red,
+.risk-card.amber,
+.blocker-panel,
+.cs-blocker-panel,
+.cs-warning-item,
+.cs-banner,
+.cs-sgc-blocked {
+  background: #fff !important;
+  border-color: var(--line) !important;
+}
+.risk-card { border-left-color: var(--amber) !important; }
+.risk-card.green { border-left-color: var(--green) !important; }
+.risk-card.red,
+.blocker-panel,
+.cs-blocker-panel,
+.cs-sgc-blocked { border-left-color: var(--red) !important; }
+.cs-warning-item { border-left-color: var(--amber) !important; }
+
+/* Remove decorative multi-color identity from analytical plots. */
+.bcg-point,
+.point { background: #7b8ca5 !important; }
+.bcg-point:last-child,
+.quadrant .point:first-of-type { background: var(--blue) !important; }
+.swot-score { color: var(--ink) !important; }
+
+/* Unified QA component. */
+.qa-unified {
+  margin-top: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.qa-unified-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-soft);
+}
+
+.qa-unified-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.qa-unified.pending .qa-unified-status,
+.qa-unified.checking .qa-unified-status {
+  color: var(--blue);
+  border-color: rgba(53, 96, 212, 0.22);
+  background: var(--blue-soft);
+}
+.qa-unified.pass .qa-unified-status {
+  color: var(--green);
+  border-color: rgba(39, 130, 97, 0.22);
+  background: var(--green-soft);
+}
+.qa-unified.warning .qa-unified-status {
+  color: var(--amber);
+  border-color: rgba(167, 106, 25, 0.24);
+  background: var(--amber-soft);
+}
+.qa-unified.block .qa-unified-status {
+  color: var(--red);
+  border-color: rgba(189, 63, 89, 0.24);
+  background: var(--red-soft);
+}
+
+.qa-unified-copy b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ink);
+  font-size: 13px;
+}
+.qa-unified-copy p { margin: 0; font-size: 12.5px; line-height: 1.55; }
+.qa-unified-count { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.qa-unified-body { padding: 14px 16px 16px; }
+.qa-unified-body:empty { display: none; }
+
+.qa-problem-group { display: grid; gap: 9px; margin-top: 12px; }
+.qa-problem-group:first-child { margin-top: 0; }
+.qa-problem-title {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.qa-unified .qa-issue-card {
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  border-radius: 8px;
+  background: #fff;
+}
+.qa-unified .qa-issue-card.blocker { border-left-color: var(--red); }
+.qa-unified .qa-issue-card.warning { border-left-color: var(--amber); }
+
+.qa-unified .qa-fix-prompt {
+  color: #344054;
+  border-color: var(--line);
+  background: var(--panel-soft);
+}
+.qa-unified .qa-fix-prompt::before { color: var(--blue); }
+.qa-unified .qa-three-actions { grid-template-columns: auto auto minmax(220px, 1fr); }
+
+.qa-passed-toggle {
+  color: #475467 !important;
+  border-color: var(--line) !important;
+  background: #fff !important;
+}
+
+.qa-inherited-risk {
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+.qa-inherited-risk summary { font-size: 12px; }
+.qa-inherited-risk p { margin: 0; font-size: 12px; }
+
+/* Hand-off remains in state/logs, not in the default working surface. */
+.handoff-contract { display: none !important; }
+
+/* Compact report synthesis rather than another grid of cards. */
+.chapter-conclusion,
+.chapter-summary {
+  margin: 18px 0 8px;
+  padding: 14px 16px;
+  border: 1px solid rgba(53, 96, 212, 0.18) !important;
+  border-left: 3px solid var(--blue) !important;
+  border-radius: 8px;
+  background: #f8faff !important;
+}
+.chapter-summary-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+.chapter-conclusion p,
+.chapter-summary p { margin: 0; color: #344054; font-size: 13px; line-height: 1.65; }
+.chapter-lead {
+  margin: 2px 0 16px;
+  color: #344054;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.delivery-status-card {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--green);
+  border-radius: 8px;
+  background: #fff;
+}
+.delivery-status-card.blocked { border-left-color: var(--red); }
+.delivery-status-card b { display: block; margin-bottom: 5px; }
+.delivery-status-card p { margin: 0; font-size: 12px; }
+
+.ui-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ui-icon.small { width: 14px; height: 14px; flex-basis: 14px; }
+
+@media (max-width: 760px) {
+  .qa-unified-header { grid-template-columns: auto minmax(0, 1fr); }
+  .qa-unified-count { grid-column: 2; }
+  .qa-unified .qa-three-actions { grid-template-columns: 1fr; }
+}
+
+/* Closed drawers must not expand the mobile document canvas. */
+.evidence-drawer { display: none !important; transform: none !important; }
+.evidence-drawer.open { display: grid !important; transform: none !important; }
+
+/* Waiting is neutral, not a warning. */
+.status-tag.waiting {
+  color: #667085 !important;
+  background: var(--gray-soft) !important;
+  border-color: var(--line) !important;
+}
+.risk-card { border-left-color: var(--blue) !important; }
+.risk-card.amber { border-left-color: var(--amber) !important; }
+
+.qa-unified-status.pending,
+.qa-unified-status.checking {
+  color: var(--blue);
+  border-color: rgba(53, 96, 212, 0.22);
+  background: var(--blue-soft);
+}
+.qa-unified-status.pass {
+  color: var(--green);
+  border-color: rgba(39, 130, 97, 0.22);
+  background: var(--green-soft);
+}
+.qa-unified-status.warning {
+  color: var(--amber);
+  border-color: rgba(167, 106, 25, 0.24);
+  background: var(--amber-soft);
+}
+.qa-unified-status.block {
+  color: var(--red);
+  border-color: rgba(189, 63, 89, 0.24);
+  background: var(--red-soft);
+}
+.qa-stage-num.pending,
+.qa-stage-num.checking { background: #8a98ad !important; }
+.qa-stage-num.block { background: var(--red) !important; }
+.qa-stage-card.block { border-color: rgba(189, 63, 89, 0.35) !important; }
+.qa-stage-card[disabled] { cursor: default; opacity: .72; }

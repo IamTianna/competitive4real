@@ -1,0 +1,289 @@
+/* Batch 3A Lite — additive structured-field table and compact field context. */
+.structured-field-section {
+  margin: 22px 0;
+}
+
+.structured-field-section .structured-field-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.structured-field-section .structured-field-head h3 {
+  margin: 0 0 4px;
+  padding-left: 10px;
+  border-left: 3px solid var(--blue);
+  font-size: 16px;
+}
+
+.structured-field-section .structured-field-head p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.structured-field-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.structured-field-table {
+  width: 100%;
+  min-width: 1180px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12.5px;
+}
+
+.structured-field-table th,
+.structured-field-table td {
+  padding: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  text-align: left;
+}
+
+.structured-field-table th:last-child,
+.structured-field-table td:last-child { border-right: 0; }
+.structured-field-table tbody tr:last-child td { border-bottom: 0; }
+
+.structured-field-table th {
+  padding: 10px 11px;
+  color: #344054;
+  background: #f6f8fc;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.structured-field-table th:first-child,
+.structured-field-table td:first-child { width: 178px; }
+.structured-field-table th:nth-child(2),
+.structured-field-table td:nth-child(2),
+.structured-field-table th:nth-child(3),
+.structured-field-table td:nth-child(3) { width: 92px; }
+.structured-field-table th:nth-child(4),
+.structured-field-table td:nth-child(4) { width: 112px; }
+.structured-field-table th:nth-child(5),
+.structured-field-table td:nth-child(5) { width: 108px; }
+.structured-field-table th:nth-child(6),
+.structured-field-table td:nth-child(6) { width: 150px; }
+.structured-field-table th:nth-child(7),
+.structured-field-table td:nth-child(7) { width: 170px; }
+.structured-field-table th:nth-child(8),
+.structured-field-table td:nth-child(8) { width: 190px; }
+.structured-field-table th:nth-child(9),
+.structured-field-table td:nth-child(9) { width: 88px; }
+
+.structured-sku-cell {
+  padding: 12px 11px;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.45;
+  background: #fbfcff;
+}
+
+.structured-value-cell {
+  min-height: 76px;
+  padding: 12px 11px;
+  color: var(--ink);
+  line-height: 1.48;
+  background: #fff;
+}
+
+button.structured-value-cell {
+  width: 100%;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  transition: background 140ms ease, box-shadow 140ms ease;
+}
+
+button.structured-value-cell:hover {
+  background: var(--blue-soft);
+  box-shadow: inset 0 0 0 1px rgba(53, 96, 212, 0.28);
+}
+
+button.structured-value-cell.selected {
+  background: var(--blue-soft) !important;
+  box-shadow: inset 0 0 0 2px var(--blue);
+}
+
+.structured-value-cell.warning { background: #fffaf0; }
+.structured-value-cell.conflict { background: #fff3f5; }
+.structured-value-cell.planned { background: #f6f8fc; }
+
+.structured-cell-value {
+  display: block;
+  font-weight: 750;
+  word-break: break-word;
+}
+
+.structured-cell-note {
+  display: inline-flex;
+  margin-top: 5px;
+  padding: 2px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.structured-value-cell.warning .structured-cell-note {
+  color: var(--amber);
+  border-color: rgba(167, 106, 25, 0.22);
+  background: var(--amber-soft);
+}
+.structured-value-cell.conflict .structured-cell-note {
+  color: var(--red);
+  border-color: rgba(189, 63, 89, 0.22);
+  background: var(--red-soft);
+}
+.structured-value-cell.planned .structured-cell-note {
+  color: #5e6b7f;
+  background: var(--gray-soft);
+}
+.structured-value-cell.updated .structured-cell-note {
+  color: var(--green);
+  border-color: rgba(39, 130, 97, 0.22);
+  background: var(--green-soft);
+}
+
+.batch3a-context-panel {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.batch3a-context-panel h3 {
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+.batch3a-context-empty {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  background: var(--panel-soft);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.batch3a-field-summary {
+  display: grid;
+  gap: 7px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.batch3a-field-summary b {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.batch3a-field-summary .field-current-value {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.batch3a-rationale {
+  margin: 12px 0 0;
+  color: #475467;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+.batch3a-source-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.batch3a-source-row .text-button {
+  padding: 4px 0;
+  font-size: 12px;
+}
+
+.batch3a-decision-group {
+  display: grid;
+  gap: 7px;
+  margin-top: 13px;
+}
+
+.batch3a-decision-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: #344054;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.batch3a-decision-option:has(input:checked) {
+  color: var(--blue);
+  border-color: rgba(53, 96, 212, 0.34);
+  background: var(--blue-soft);
+}
+
+.batch3a-decision-option input {
+  width: auto;
+  margin: 2px 0 0;
+  box-shadow: none;
+}
+
+.batch3a-custom-input {
+  min-height: 70px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.batch3a-detail {
+  margin-top: 10px;
+  background: #fff;
+}
+
+.batch3a-detail p {
+  margin: 0 0 7px;
+  font-size: 12px;
+}
+
+.batch3a-context-action {
+  margin-top: 11px;
+}
+
+.batch3a-context-action .btn { width: 100%; }
+
+.batch3a-context-footnote {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .structured-field-section .structured-field-head {
+    display: block;
+  }
+  .structured-field-section .structured-field-head p { margin-top: 5px; }
+}
